@@ -1,0 +1,40 @@
+/*INCLUDES STRUCT NODE
+ */
+
+#ifndef LINKEDLIST_H_
+#define LINKEDLIST_H_
+
+using namespace std;
+
+template <class T>
+//struct is default public
+struct Node{
+	T data;
+	Node* next;
+};
+
+template <class T>
+class linkedList{
+public:
+	linkedList(T data);
+	linkedList();
+
+	//getters
+	T getData();
+	T* getNextPtr();
+
+	//setters
+	void setData(T data);
+	//using pointer param to allow fur null
+	void setNext(T* data);
+
+private:
+	bool empty;
+	T data;
+	linkedList* next;
+};
+
+
+
+
+#endif /* LINKEDLIST_H_ */

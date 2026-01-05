@@ -1,0 +1,40 @@
+#include <iostream>
+#include "HashTable.h"
+
+using namespace std;
+
+int main() {
+//creating hash table
+HashTable table1;
+table1.insert(100);
+table1.insert(90);
+table1.insert(80);
+table1.insert(70);
+table1.insert(60);
+table1.insert(50);
+table1.insert(40);
+table1.insert(30);
+table1.insert(20);
+table1.insert(10);
+cout << "HashTable 1:" << endl;
+table1.print();
+
+unsigned int choice = 0;
+int elem;
+do {
+	cout << "Choose your search type:" << endl;
+	cout << "1. Arrays: Hashing with linear probing" << endl;
+	cout << "2. Arrays: Hashing with chaining" << endl;
+	cout << "3. Arrays: Hashing with quadratic probing" << endl;
+	cout << "Enter 0 to exit" << endl;
+	cout << "Your choice: ";
+	cin >> choice;
+	if(choice==1){
+		cout << "Enter element to search HashTable 1 for: ";
+		cin >> elem;
+		cout << elem << " found at index: " << table1.search(elem) << endl;
+	}
+	cout<<"\nSpecify the element to be searched for: ";
+} while(choice!=0);
+return 0;
+}

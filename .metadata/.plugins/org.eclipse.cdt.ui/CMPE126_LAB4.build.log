@@ -1,0 +1,15 @@
+17:27:12 **** Incremental Build of configuration Debug for project CMPE126_LAB4 ****
+make all 
+Building file: ../LAB4.src/linkedList.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LAB4.src/linkedList.d" -MT"LAB4.src/linkedList.o" -o "LAB4.src/linkedList.o" "../LAB4.src/linkedList.cpp"
+Finished building: ../LAB4.src/linkedList.cpp
+ 
+Building target: CMPE126_LAB4
+Invoking: MacOS X C++ Linker
+g++  -o "CMPE126_LAB4"  ./LAB4.src/lab4-cmpe126.o ./LAB4.src/linkedList.o   
+Finished building target: CMPE126_LAB4
+ 
+
+17:27:14 Build Finished. 0 errors, 0 warnings. (took 2s.191ms)
+

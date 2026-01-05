@@ -1,0 +1,15 @@
+#include "HashTable.h"
+
+HashTable::HashTable(){}
+HashTable::HashTable(int size){}
+
+void HashTable::print()
+//uses linear probing
+bool HashTable::insert(int elem);
+int HashTable::search(int elem);
+
+HashTable::~HashTable(){
+	delete[] arr;
+}
+
+

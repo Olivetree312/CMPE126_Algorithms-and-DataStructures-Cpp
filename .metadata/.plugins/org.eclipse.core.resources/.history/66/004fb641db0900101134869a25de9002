@@ -1,0 +1,58 @@
+#include <iostream>
+#include <iomanip> //needed for boolalpha()
+#include "arrayQueue.h"
+#include "stackQueue.h"
+using namespace std;
+int main() {
+//prof's test case for arrayQueue
+try{
+//need to accept param for maxSize of array
+arrayQueue<char> charQueue1(7);
+charQueue1.enqueue('A');
+charQueue1.enqueue('B');
+cout << charQueue1.dequeue() << endl;
+charQueue1.enqueue('C');
+cout << charQueue1.dequeue() << endl;
+charQueue1.enqueue('D');
+cout << charQueue1.dequeue() << endl;
+cout << charQueue1.dequeue() << endl;
+cout << charQueue1.dequeue() << endl;
+}
+//made my own custom exception
+catch(const EmptyQueueException& e) {
+//not using cerr because stream doesn't sync with cout stream
+cout << "Caught an exception: " << e.what() << endl;
+}
+//MY test case for arrayQueue
+try{
+	cout << "/nTesting for FullQueueException..." << endl;
+	arrayQueue<int> intQueue(3);
+	intQueue.enqueue(1);
+	intQueue.enqueue(2);
+	intQueue.enqueue(3);
+	cout << "created integer queue with maxSize 3...is array full :" <<
+			<< boolalpha() << intQueue.isFull() << endl;
+	cout <<	"attempting to add 4th element..." << endl;
+	intQueue.enqueue(4);
+}
+catch(const FullQueueException& e){
+	cout << "Caught an exception: " << e.what() << endl;
+}
+//prof's test case for stackQueue
+/*try{
+stackQueue<char> charQueue2;
+charQueue2.enqueue('A');
+charQueue2.enqueue('B');
+cout << charQueue2.dequeue() << endl;
+charQueue2.enqueue('C');
+cout << charQueue2.dequeue() << endl;
+charQueue2.enqueue('D');
+cout << charQueue2.dequeue() << endl;
+cout << charQueue2.dequeue() << endl;
+cout << charQueue2.dequeue() << endl;
+}
+catch(const char *e) {
+cout << e << endl;
+}*/
+return 0;
+}

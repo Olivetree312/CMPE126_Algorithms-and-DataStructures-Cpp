@@ -1,0 +1,20 @@
+19:39:51 **** Build of configuration Debug for project CMPE126 LAB 1 ****
+make all 
+Building file: ../CMPE126_LAB1.src/complexNumber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"CMPE126_LAB1.src/complexNumber.d" -MT"CMPE126_LAB1.src/complexNumber.o" -o "CMPE126_LAB1.src/complexNumber.o" "../CMPE126_LAB1.src/complexNumber.cpp"
+Finished building: ../CMPE126_LAB1.src/complexNumber.cpp
+ 
+Building file: ../CMPE126_LAB1.src/lab1-cmpe126.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"CMPE126_LAB1.src/lab1-cmpe126.d" -MT"CMPE126_LAB1.src/lab1-cmpe126.o" -o "CMPE126_LAB1.src/lab1-cmpe126.o" "../CMPE126_LAB1.src/lab1-cmpe126.cpp"
+Finished building: ../CMPE126_LAB1.src/lab1-cmpe126.cpp
+ 
+Building target: CMPE126 LAB 1
+Invoking: MacOS X C++ Linker
+g++  -o "CMPE126 LAB 1"  ./CMPE126_LAB1.src/complexNumber.o ./CMPE126_LAB1.src/lab1-cmpe126.o   
+Finished building target: CMPE126 LAB 1
+ 
+
+19:39:53 Build Finished. 0 errors, 0 warnings. (took 1s.520ms)
+

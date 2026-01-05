@@ -1,0 +1,15 @@
+08:18:30 **** Incremental Build of configuration Debug for project CMPE126 LAB6 ****
+make all 
+Building file: ../LAB6.src/myInfixPostfix.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"LAB6.src/myInfixPostfix.d" -MT"LAB6.src/myInfixPostfix.o" -o "LAB6.src/myInfixPostfix.o" "../LAB6.src/myInfixPostfix.cpp"
+Finished building: ../LAB6.src/myInfixPostfix.cpp
+ 
+Building target: CMPE126 LAB6
+Invoking: MacOS X C++ Linker
+g++  -o "CMPE126 LAB6"  ./LAB6.src/myInfixPostfix.o   
+Finished building target: CMPE126 LAB6
+ 
+
+08:18:32 Build Finished. 0 errors, 0 warnings. (took 2s.421ms)
+

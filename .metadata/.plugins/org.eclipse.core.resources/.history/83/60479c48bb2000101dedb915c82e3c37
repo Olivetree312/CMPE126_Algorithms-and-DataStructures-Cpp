@@ -1,0 +1,78 @@
+#include "HashTableChaining.h"
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+HashTableChaining::HashTableChaining(){
+	HTSize = 10;
+	for(int i=0; i<HTSize; i++){
+		nodeArr[i] = nullptr;
+	}
+}
+HashTableChaining::HashTableChaining(int size){
+	HTSize = size;
+	for(int i=0; i<HTSize; i++){
+		nodeArr[i] = nullptr;
+	}
+}
+
+void HashTableChaining::print(){
+	cout << setw(6) << " " << "INDEX" << setw(3) << " "<< setw(10) << " KEY/ VALUE " << endl;
+	Node *ptr;
+	for(int i=0; i<HTSize; i++){
+		ptr = nodeArr[i];
+		cout <<setw(10) << i << ": ";
+		if(ptr==nullptr){
+			cout << setw(10) << "null" << endl;
+		}
+		while(ptr!=nullptr){
+			cout << ptr->data << ", " << endl;
+			ptr = ptr->next;
+		}
+		cout << endl;
+	}
+}
+//uses chaining -> NO OVERFLOW, so always TRUE
+bool HashTableChaining::insert(int val){
+	int index = val%HTSize;
+	Node* elem = new Node(val);
+	Node* temp = nodeArr[index];
+	while(temp!=nullptr){
+		temp = temp->next;
+	}
+	//traversed to end of linked list at array index
+	//link elem to end of linked list
+	temp->next = elem;
+	return true;
+}
+int HashTableChaining::search(int key){
+	Node* ptr;
+	for(int i=0; i<HTSize; i++){
+		ptr = nodeArr[i];
+		while(ptr!=nullptr){
+			if(ptr->data==key){
+				return i;
+			}
+			ptr = ptr->next;
+		}
+	}
+	return -1;
+}
+//VIRTUAL destructor needed
+//deleting DYNAMIC ARRAY of LINKED LISTS
+HashTableChaining::~HashTableChaining(){
+	Node* ptr;
+	for(int i=0; i<HTSize; i++){
+		ptr = nodeArr[i];
+		while(ptr!=nullptr){
+			nodeArr[i] = nodeArr[i]->next;
+			delete ptr;
+		}
+	}
+	delete[] nodeArr;
+}
+
+
+
+

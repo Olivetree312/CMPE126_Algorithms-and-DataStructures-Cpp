@@ -1,0 +1,19 @@
+21:14:59 **** Build of configuration Debug for project PRACTICE EXAM 2 ****
+make all 
+Building file: ../src/Books.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Books.d" -MT"src/Books.o" -o "src/Books.o" "../src/Books.cpp"
+../src/Books.cpp:18:5: warning: unused variable 'num_books' [-Wunused-variable]
+int num_books = read("books.txt", books);
+    ^
+1 warning generated.
+Finished building: ../src/Books.cpp
+ 
+Building target: PRACTICE EXAM 2
+Invoking: MacOS X C++ Linker
+g++  -o "PRACTICE EXAM 2"  ./src/Books.o   
+Finished building target: PRACTICE EXAM 2
+ 
+
+21:15:03 Build Finished. 0 errors, 1 warnings. (took 4s.719ms)
+

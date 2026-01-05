@@ -1,0 +1,57 @@
+/*
+ * lab4-cmpe126.cpp
+ *
+ *  Created on: Feb 25, 2025
+ *      Author: oliviachen
+ */
+#include "linkedList.h"
+#include "sortedLinkedList.h"
+
+using namespace std;
+
+int main(){
+	Node<int>* node1 = new Node<int>(1);
+	Node<int>* node2 = new Node<int>(2);
+	Node<int>* node3 = new Node<int>(3);
+	Node<int>* node4 = new Node<int>(4);
+
+	//linking nodes in descending order
+	node4->next = node3;
+	node3->next = node2;
+	node2->next = node1;
+
+	//setting node4 as head of linkedList
+	cout << "creating linkedList list1 with maxSize 5"<< endl;
+	linkedList<int> list1(node4, 5);
+
+	cout << "inserting element at index 2: " << endl;
+	list1.insertAt(2,10);
+	list1.print();
+	//boolalpha tells cout to print true/false
+	cout << boolalpha;
+	cout << "is item at index 2 equal to 10?: " << list1.isItemAtEqual(2,10) << endl;
+	cout << "current list size: " << list1.listSize() << endl;
+	cout << "maxSize: " << list1.maxListSize() << endl;
+
+	cout << "linkedlist full?: " << list1.isFull() << endl;
+	cout << "removing index 2: "<< endl;
+	list1.removeAt(2);
+	list1.print();
+	cout << "inserting element at end: " << endl;
+	list1.insertEnd(11);
+	list1.print();
+	cout << "retrieving element from index 1: " << list1.retrieveAt(1) << endl;
+	cout << "replacing index 3 with int=13: " << endl;
+	list1.replaceAt(3,13);
+	list1.print();
+	cout << "clearing linked list..." << endl;
+	list1.clearList();
+	cout << "linkedList empty?: " << list1.isEmpty() << endl;
+	list1.print();
+
+	cout << "assigning list1 to new list2:" << endl;
+	linkedList<int> list2 = list1;
+}
+
+
+

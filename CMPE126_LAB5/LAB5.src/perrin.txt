@@ -1,0 +1,41 @@
+PSEUDOCODE FOR PERRIN
+- take parameter n
+- if:
+- 	return 3 when n = 0 (base case)
+- 	return 0 when n = 1 (base case)
+- 	return 2 when n = 2 (base case)
+- else:
+- 	recursively call perrin(n-2)+perrin(n-3)
+
+PERRIN OUTPUT (when n=7):
+In perrin with n = 7
+In perrin with n = 5
+In perrin with n = 3
+In perrin with n = 1
+returning 0 with n=1
+In perrin with n = 0
+returning 3 with n=0
+returning 3 with n = 3
+In perrin with n = 2
+returning 2 with n=2
+returning 5 with n = 5
+In perrin with n = 4
+In perrin with n = 2
+returning 2 with n=2
+In perrin with n = 1
+returning 0 with n=1
+returning 2 with n = 4
+returning 7 with n = 7
+
+//perrin(7) -> perrin(5) -> perrin(3) -> perrin(1) -> 0
+//perrin(0) -> 3 --> ******perrin(3) returns perrin(2)-perrin(0)
+
+
+HP QUESTION:
+To me, recursion seems like a headache to visualize since it's not
+very linear, but it is very suitable to use for naturally recursive
+problems like Fibonnaci or Perrin sequences. Meanwhile, should we use
+iteration, it would be more efficient due to its linear nature, as 
+well as more space-efficient since it doesn't need a call stack
+like recursive functions do. If we use a very large n, recursion
+could lead to a stack overflow depending on the system

@@ -1,0 +1,23 @@
+/*
+ * sortedLinkedList.h
+ *
+ *  Created on: Feb 25, 2025
+ *      Author: oliviachen
+ */
+
+#ifndef SORTEDLINKEDLIST_H_
+#define SORTEDLINKEDLIST_H_
+
+#include "linkedList.h"
+
+template <class T>
+class sortedLinkedList : public linkedList<T>{
+public:
+	sortedLinkedList();
+	sortedLinkedList(T* head);
+	sortedLinkedList(linkedList<T>& list);
+};
+
+
+
+#endif /* SORTEDLINKEDLIST_H_ */

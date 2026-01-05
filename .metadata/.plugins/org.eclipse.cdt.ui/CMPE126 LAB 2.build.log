@@ -1,0 +1,15 @@
+15:32:32 **** Incremental Build of configuration Debug for project CMPE126 LAB 2 ****
+make all 
+Building file: ../CMPE126_LAB.src/DateOfBirth.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"CMPE126_LAB.src/DateOfBirth.d" -MT"CMPE126_LAB.src/DateOfBirth.o" -o "CMPE126_LAB.src/DateOfBirth.o" "../CMPE126_LAB.src/DateOfBirth.cpp"
+Finished building: ../CMPE126_LAB.src/DateOfBirth.cpp
+ 
+Building target: CMPE126 LAB 2
+Invoking: MacOS X C++ Linker
+g++  -o "CMPE126 LAB 2"  ./CMPE126_LAB.src/DateOfBirth.o ./CMPE126_LAB.src/Flight.o ./CMPE126_LAB.src/Passenger.o ./CMPE126_LAB.src/Ticket.o ./CMPE126_LAB.src/Time.o ./CMPE126_LAB.src/lab2-cmpe126.o   
+Finished building target: CMPE126 LAB 2
+ 
+
+15:32:33 Build Finished. 0 errors, 0 warnings. (took 1s.138ms)
+

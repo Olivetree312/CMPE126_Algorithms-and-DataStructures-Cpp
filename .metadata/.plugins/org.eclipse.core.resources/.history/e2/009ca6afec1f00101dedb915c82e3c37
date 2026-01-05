@@ -1,0 +1,25 @@
+#ifndef HASHTABLE_H_
+#define HASHTABLE_H_
+
+#include <iostream>
+#include <string>
+
+class HashTable{
+private:
+	//bucket size assumed n=1
+	//# of elements in arr
+	int HTSize;
+	int *arr;
+
+public:
+	//default size is 10
+	HashTable();
+	HashTable(int size);
+
+	void print();
+	//uses linear probing
+	bool insert(int elem);
+	int search(int elem);
+};
+
+#endif /* HASHTABLE_H_ */

@@ -1,0 +1,56 @@
+#ifndef STACKQUEUE_H_
+#define STACKQUEUE_H_
+
+#include <iostream>
+#include <stack>
+#include <stdexcept>
+
+using namespace std;
+
+//creating custom exception class for FullQueueException
+class FullQueueException : public runtime_error{
+public:
+	FullQueueException() : runtime_error("Queue is full"){}
+};
+
+class EmptyQueueException : public runtime_error{
+public:
+	EmptyQueueException() : runtime_error("Queue is empty"){}
+};
+
+
+template <typename elemType>
+class stackQueue{
+public:
+	stackQueue(int max): capacity(capacity){}
+	void enqueue(elemType elem){
+		if(size()==capacity)
+			throw EmptyQueueExecption();
+		stack1.push(elem);
+	}
+	T dequeue(){
+		if(isEmpty())
+			throw EmptyQueueException();
+		T elem = arr[f];
+		f = (f+1)%N;
+		return elem;
+	}
+	T& front(){
+		T& ref = arr[f];
+		return ref;
+	}
+	T& back(){
+		T& ref = arr[(r+1)%N];
+		return ref;
+	}
+	int size(){return (N-f+r)%N;}
+	int maxSize(){return (N-1);}
+	bool isEmpty(){return (r==f);};
+	bool isFull(){return size()==maxSize();}
+private:
+	stack <elemType> stack1;
+	stack <elemType> stack2;
+	int capacity;
+};
+
+#endif /* STACKQUEUE_H_ */

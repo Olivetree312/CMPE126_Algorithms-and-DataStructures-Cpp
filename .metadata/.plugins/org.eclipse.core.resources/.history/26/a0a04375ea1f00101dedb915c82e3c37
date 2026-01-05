@@ -1,0 +1,20 @@
+#ifndef HASHTABLE_H_
+#define HASHTABLE_H_
+
+#include <iostream>
+#include <string>
+
+class HashTable{
+private:
+	//# of elements in arr
+	int HTSize;
+	string *arr;
+
+public:
+	HashTable();
+	HashTable()
+};
+
+
+
+#endif /* HASHTABLE_H_ */

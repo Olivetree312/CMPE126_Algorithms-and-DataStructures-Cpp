@@ -1,0 +1,96 @@
+/*ALSO INCLUDES sortedLinkedList functions*/
+
+#include "linkedList.h"
+#include "sortedLinkedList.h"
+#include <iostream>
+
+using namespace std;
+
+//Node constructor w curr val, null nextVal
+template <class T> Node<T>::Node(T &data): data(data), next(nullptr){}
+
+template <class T> linkedList<T>::linkedList(T* head, int maxSize): head(head), maxSize(maxSize){
+	size = listSize();
+}
+
+//default maxSize of 10
+template <class T> linkedList<T>::linkedList(): head(nullptr), maxSize(10), size(0){}
+
+//getters
+template <class T> T* linkedList<T>::getHead() const{return head;}
+//setters
+template <class T> void linkedList<T>::setHead(T* head){
+	delete this->head;
+	this->head = head;
+}
+
+template <class T> bool linkedList<T>::isEmpty() const{
+	return(head==nullptr);
+}
+template <class T> bool linkedList<T>::isFull() const;
+//traverses linkedList to find current size
+template <class T> int linkedList<T>::listSize() const{
+	Node<T>* curr = head;
+	int count = 0;
+	while(curr!=nullptr){
+		curr = curr->next; //moves to Node's ptr to next Node
+		count++;
+	}
+	return count;
+}
+template <class T> int linkedList<T>::maxListSize() const{return maxSize;}
+
+template <class T> void linkedList<T>::print(){
+	Node<T>* curr = head;
+	while(curr!=nullptr){
+		cout << curr->data << endl;
+		curr = curr->next;
+	}
+}
+template <class T> bool linkedList<T>::isItemAtEqual(int index, T elemType){
+	if(index>size){
+		cerr << "Index out of bounds" << endl;
+		return false;
+	}
+	T itemAt = retrieveAt(index);
+	if(elemType==itemAt)
+		return true;
+	else
+		return false;
+}
+//obj at index will be moved after
+template <class T> void linkedList<T>::insertAt(int index, T elemType){
+	if(index>size){
+		cerr << "Index out of bounds" << endl;
+		return;
+	}
+	Node<T>* after = retrieveObjAt(index);
+}
+template <class T> void linkedList<T>::removeAt(int index);
+//returns head Node's T if index OOB
+template <class T> Node<T>* linkedList<T>::retrieveNodeAt(int index){
+	if(index>size-1){ //size-1=maxIndex
+		cerr << "Index out of bounds" << endl;
+		return head->data;
+	}
+	Node<T>* curr = head;
+	int count=0;
+	while(count<=index){
+		curr = curr->next;
+	}
+	return curr;
+}
+template <class T> T linkedList<T>::retrieveAt(int index){
+	Node<T>* obj= retrieveNodeAt(index);
+	return obj->data;
+}
+template <class T> void linkedList<T>::replaceAt(int index, T elemType);
+template <class T> void linkedList<T>::clearList();
+
+template <class T> linkedList<T>& linkedList<T>:: operator=(const linkedList<T>& other);
+
+~linkedList();
+
+
+
+

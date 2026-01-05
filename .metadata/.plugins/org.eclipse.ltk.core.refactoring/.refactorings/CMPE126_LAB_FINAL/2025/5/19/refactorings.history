@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;students.txt&apos; to &apos;CMPE126_LAB_FINAL&apos;" description="Move &apos;students.txt&apos; to &apos;CMPE126_LAB_FINAL&apos;" destination="/CMPE126_LAB_FINAL" element1="src/students.txt" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1746569578501" updateReferences="true"/>
+</session>

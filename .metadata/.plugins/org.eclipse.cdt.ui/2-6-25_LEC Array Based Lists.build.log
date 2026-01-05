@@ -1,0 +1,20 @@
+19:39:50 **** Build of configuration Debug for project 2-6-25_LEC Array Based Lists ****
+make all 
+Building file: ../2-6-25_LEC.src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"2-6-25_LEC.src/main.d" -MT"2-6-25_LEC.src/main.o" -o "2-6-25_LEC.src/main.o" "../2-6-25_LEC.src/main.cpp"
+Finished building: ../2-6-25_LEC.src/main.cpp
+ 
+Building target: 2-6-25_LEC Array Based Lists
+Invoking: MacOS X C++ Linker
+g++  -o "2-6-25_LEC Array Based Lists"  ./2-6-25_LEC.src/main.o   
+Undefined symbols for architecture x86_64:
+  "_main", referenced from:
+      <initial-undefines>
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [2-6-25_LEC Array Based Lists] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+19:39:51 Build Failed. 2 errors, 0 warnings. (took 434ms)
+

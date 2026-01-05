@@ -1,0 +1,24 @@
+#include <iostream>
+#include "HashTable.h"
+
+using namespace std;
+
+int main() {
+//create hash table
+
+unsigned int choice = 0;
+do {
+cout << "Choose your search type:" << endl;
+cout << "1. Arrays: Hashing with linear probing" << endl;
+cout << "2. Arrays: Hashing with chaining" << endl;
+cout << "3. Arrays: Hashing with quadratic probing" << endl;
+cout << "Enter 0 to exit" << endl;
+cout << "Your choice: ";
+cin >> choice;
+/****************************
+* TODO: Implement what you will do with the choice
+*****************************/
+cout<<"\nSpecify the element to be searched for: ";
+} while(choice!=0);
+return 0;
+}

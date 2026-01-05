@@ -1,0 +1,46 @@
+/*ALSO INCLUDES sortedLinkedList functions*/
+
+#include "linkedList.h"
+#include "sortedLinkedList.h"
+
+//Node constructor w curr val, null nextVal
+template <class T> Node<T>::Node(T &data): data(data), next(nullptr){}
+
+template <class T> linkedList<T>::linkedList(T* head, int maxSize): head(head), maxSize(maxSize), size(1){}
+
+//default maxSize of 10
+template <class T> linkedList<T>::linkedList(): head(nullptr), maxSize(10), size(0){}
+
+//getters
+template <class T> T* linkedList<T>::getHead() const{return head;}
+//setters
+template <class T> void linkedList<T>::setHead(T* head){
+	delete this->head;
+	this->head = head;
+}
+
+template <class T> bool linkedList<T>::isEmpty() const{
+	return(head==nullptr);
+}
+template <class T> bool linkedList<T>::isFull() const;
+//traverses linkedList to find current size
+template <class T> int linkedList<T>::listSize() const{
+	Node* curr = head;
+}
+template <class T> int linkedList<T>::maxListSize() const;
+
+template <class T> void linkedList<T>::print();
+template <class T> bool linkedList<T>::isItermAtEqual(int index, T elemType);
+template <class T> void linkedList<T>::insertAt(int index, T elemType);
+template <class T> void linkedList<T>::removeAt(int index);
+template <class T> T linkedList<T>::retreiveAt(int index);
+template <class T> void linkedList<T>::replaceAt(int index, T elemType);
+template <class T> void linkedList<T>::clearList();
+
+template <class T> linkedList<T>& linkedList<T>:: operator=(const linkedList<T>& other);
+
+~linkedList();
+
+
+
+

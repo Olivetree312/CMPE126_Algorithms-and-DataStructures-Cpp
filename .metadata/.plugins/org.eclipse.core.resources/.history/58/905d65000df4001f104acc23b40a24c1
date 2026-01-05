@@ -1,0 +1,59 @@
+/*INCLUDES NODE STRUCT
+ */
+
+#ifndef LINKEDLIST_H_
+#define LINKEDLIST_H_
+
+#include <iostream>
+using namespace std;
+
+template <class T>
+//struct is default public
+struct Node{
+	T data;
+	Node* next;
+
+	Node(T& data);
+	Node();
+};
+
+template <class T>
+class linkedList{
+public:
+	linkedList(T* head, int maxSize);
+
+	//getters
+	T* getHead() const;
+
+	//setters
+	void setHead(T* head);
+
+	bool isEmpty() const;
+	bool isFull() const;
+	int listSize() const;
+	int maxListSize() const;
+
+	void print();
+	bool isItemAtEqual(int index, T elemType);
+	void insertAt(int index, T elemType);
+	void removeAt(int index);
+	Node<T>* retrieveNodePtrAt(int index);
+	T retrieveAt(int index);
+	void replaceAt(int index, T elemType);
+	void clearList();
+
+	linkedList& operator=(const linkedList& other);
+
+	~linkedList();
+
+
+//NODE IS TEMPLATE!!
+private:
+	Node<T>* head;
+	int maxSize, size;
+};
+
+
+
+
+#endif /* LINKEDLIST_H_ */

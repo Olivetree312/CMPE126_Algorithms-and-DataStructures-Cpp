@@ -1,0 +1,36 @@
+#include "HashTableChaining.h"
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+HashTableChaining::HashTableChaining(){
+	HTSize = 10;
+	for(int i=0; i<HTSize; i++){
+		nodeArr[i] = new Node;
+	}
+}
+HashTableChaining::HashTableChaining(int size){
+	HTSize = 10;
+	for(int i=0; i<HTSize; i++){
+		nodeArr[i] = new Node;
+	}
+}
+
+void HashTableChaining::print(){
+	cout << setw(10) << "INDEX" << setw(10) << "KEY/ VALUE" << endl;
+	for(int i=0; i<HTSize; i++){
+		cout <<setw(10) << i << setw(10) << arr[i] << endl;
+	}
+}
+//uses chaining
+bool HashTableChaining::insert(int val){}
+int HashTableChaining::search(int key){}
+//VIRTUAL destructor needed
+HashTableChaining::~HashTableChaining(){
+	delete[] nodeArr;
+}
+
+
+
+

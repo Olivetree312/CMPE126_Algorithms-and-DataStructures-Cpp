@@ -1,0 +1,76 @@
+#include <iostream>
+#include "arrayQueue.h"
+#include "stackQueue.h"
+
+using namespace std;
+
+//added to prof's main.cpp to test additional functions
+int main() {
+cout << "TESTING arrayQueue..." << endl;
+try{
+//need to accept param for maxSize of array
+arrayQueue<char> charQueue1(7);
+charQueue1.enqueue('A');
+charQueue1.enqueue('B');
+cout << charQueue1.dequeue() << endl;
+charQueue1.enqueue('C');
+cout << charQueue1.dequeue() << endl;
+charQueue1.enqueue('D');
+cout << charQueue1.dequeue() << endl;
+cout << charQueue1.dequeue() << endl;
+cout << "removed 4 elements --> is empty?: " << boolalpha << charQueue1.isEmpty() << endl;
+cout << charQueue1.dequeue() << endl;
+}
+//made my own custom exception
+catch(const EmptyQueueException& e) {
+//not using cerr because stream doesn't sync with cout stream
+cout << "Caught an exception: " << e.what() << endl;
+}
+//MY test case for arrayQueue
+try{
+	cout << "/nTesting for FullQueueException..." << endl;
+	arrayQueue<int> intQueue(3);
+	intQueue.enqueue(1);
+	intQueue.enqueue(2);
+	intQueue.enqueue(3);
+	cout << "created integer queue with maxSize 3...is array full :"
+			 << intQueue.isFull() << endl;
+	cout <<	"attempting to add 4th element..." << endl;
+	intQueue.enqueue(4);
+}
+catch(const FullQueueException& e){
+	cout << "Caught an exception: " << e.what() << endl;
+}
+cout << "\n\nTesting stackQueue..." << endl;
+try{
+cout << "creating stackQueue with capacity of 4 elements..." << endl;
+stackQueue<char> charQueue2(4);
+charQueue2.enqueue('A');
+charQueue2.enqueue('B');
+cout << "added 2 elements..." << endl;
+cout << "queue is empty?: " << charQueue2.isFull() << endl;
+cout << charQueue2.dequeue() << endl;
+charQueue2.enqueue('C');
+cout << charQueue2.dequeue() << endl;
+charQueue2.enqueue('D');
+charQueue2.enqueue('E');
+charQueue2.enqueue('F');
+cout << "after enqueing x6, dequeueing x2..." << endl;
+cout << "queue is full?: " << charQueue2.isFull() << endl;
+cout << "dequeueing x4..." << endl;
+cout << charQueue2.dequeue() << endl;
+cout << charQueue2.dequeue() << endl;
+cout << charQueue2.dequeue() << endl;
+cout << charQueue2.dequeue() << endl;
+cout << "queue is empty?: " << charQueue2.isEmpty() << endl;
+cout << "dequeueing again..." << endl;
+cout << charQueue2.dequeue() << endl;
+}
+catch(EmptyQueueException& e) {
+cout << "Caught an exception:  " << e.what() << endl;
+}
+catch(FullQueueException& e){
+	cout << "Caught an exception: " << e.what() << endl;
+}
+return 0;
+}

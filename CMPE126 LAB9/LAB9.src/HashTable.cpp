@@ -1,0 +1,75 @@
+#include "HashTable.h"
+#include <iomanip>
+#include <climits> //includes INT_MIN, represents null in arr
+
+using namespace std;
+
+HashTable::HashTable(): HTSize(10), arr(new int[10]){
+	//initialize all elem of arr to INT_MIN, sentinel val for NULL
+	for(int i=0; i<HTSize; i++){
+		arr[i] = INT_MIN;
+	}
+}
+HashTable::HashTable(int size): HTSize(size), arr(new int[size]){
+	for(int i=0; i<HTSize; i++){
+		arr[i] = INT_MIN;
+	}
+}
+
+void HashTable::print(){
+	cout << setw(6) << " " << "INDEX" << setw(3) << " "<< setw(10) << " KEY/ VALUE " << endl;
+	for(int i=0; i<HTSize; i++){
+		if(arr[i]==INT_MIN){
+			cout << setw(10) << i << setw(10) << "null" << endl;
+		}
+		cout <<setw(10) << i << setw(10) << arr[i] << endl;
+	}
+}
+//uses linear probing
+//HASH VALUE != VALUE
+//key is hashed --> hash value + probing -->
+//--->				determines index --> stores value
+//BUT IN THIS ASSIGNMENT...key = value
+//key is hashed --> determines index --> key is stored
+bool HashTable::insert(int num){
+	//INTIAL PROBE VAL = ZERO
+	int probe = 0;
+	int index = linProbe(num, probe);
+	//key or inserted element CANNOT be duplicate
+	//linearly probe through arr to find empty spot
+	//return false if found or if iterated through whole array
+	while(arr[index]!=INT_MIN){
+		if(arr[index]==num || (probe==HTSize-1)){
+			cout << "Duplicate keys not allowed!" << endl;
+			return false;
+		}
+		else{
+			index = linProbe(num, ++probe);
+		}
+	}
+	arr[index] = num;
+	return true;
+}
+//modulo-table size is technically the hash function
+//simplified: (val+probe)%HTSize = ((val%HTSize)+probe)%HTSize
+int HashTable::linProbe(int val, int probe){
+	return (val+probe)%HTSize;
+}
+int HashTable::search(int key){
+	int probe = 0;
+	int index = linProbe(key, probe);
+	while(probe<HTSize){
+		if(arr[index]==key) return index;
+		else{
+			index = linProbe(key, ++probe);
+		}
+	}
+	//returns -1 if not found
+	return -1;
+}
+
+HashTable::~HashTable(){
+	delete[] arr;
+}
+
+

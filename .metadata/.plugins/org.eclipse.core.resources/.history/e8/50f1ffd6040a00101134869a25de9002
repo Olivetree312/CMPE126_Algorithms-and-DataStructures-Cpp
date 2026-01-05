@@ -1,0 +1,65 @@
+/*
+ * arrayQueue.h
+ *
+ *  Created on: Mar 25, 2025
+ *      Author: oliviachen
+ */
+
+#ifndef ARRAYQUEUE_H_
+#define ARRAYQUEUE_H_
+
+#include <stdexcept>
+
+using namespace std;
+
+//creating custom exception class for FullQueueException
+class FullQueueException : public runtime_error{
+public:
+	FullQueueException() : runtime_error("Queue is full"){}
+};
+
+class EmptyQueueException : public runtime_error{
+public:
+	EmptyQueueException() : runtime_error("Queue is empty"){}
+};
+
+template <class T>
+class arrayQueue{
+public:
+	//need size+1 for index past rear
+	arrayQueue(int maxSize): f(0),r(0), N(maxSize+1), arr(new T[maxSize+1]){}
+
+	void enqueue(T elem){
+		if(size()==N-1)
+			throw FullQueueException();
+		arr[r] = elem;
+		r = (r+1)%N;
+	}
+	T dequeue(){
+		if(isEmpty())
+			throw EmptyQueueException();
+		T elem = arr[f];
+		f = (f+1)%N;
+		return elem;
+	}
+	T& front(){
+		T& ref = arr[f];
+		return ref;
+	}
+	T& back(){
+		T& ref = arr[(r+1)%N];
+		return ref;
+	}
+	int size(){return (N-f+r)%N;}
+	int maxSize(){return (N-1);}
+	bool isEmpty(){return (r==f);};
+	bool isFull(){return size()==maxSize();}
+
+private:
+	int f;
+	int r;
+	int N;
+	T* arr;
+};
+
+#endif /* ARRAYQUEUE_H_ */

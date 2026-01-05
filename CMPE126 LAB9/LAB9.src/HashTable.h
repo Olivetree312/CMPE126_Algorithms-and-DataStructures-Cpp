@@ -1,0 +1,30 @@
+#ifndef HASHTABLE_H_
+#define HASHTABLE_H_
+
+#include <iostream>
+
+using namespace std;
+
+class HashTable{
+private:
+	//bucket size assumed n=1
+	//# of elements in arr
+	int HTSize;
+	int *arr;
+	//helper function for search()
+	int linProbe(int val, int probe);
+
+public:
+	//default size is 10
+	HashTable();
+	HashTable(int size);
+
+	void print();
+	//uses linear probing
+	bool insert(int val);
+	int search(int key);
+	//VIRTUAL destructor needed
+	virtual ~HashTable();
+};
+
+#endif /* HASHTABLE_H_ */

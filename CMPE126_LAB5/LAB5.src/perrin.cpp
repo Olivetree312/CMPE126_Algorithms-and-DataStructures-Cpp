@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+unsigned int perrin(const unsigned int &n){
+	cout << "In perrin with n = " << n << endl;
+	if(n==0){
+		cout << "returning 3 with n=0" << endl;
+		return 3;
+	}
+	else if(n==1){
+		cout << "returning 0 with n=1" << endl;
+		return 0;
+	}
+	else if(n==2){
+		cout << "returning 2 with n=2" << endl;
+		return 2;
+	}
+	else{
+		//printing n is NOT printing the result of func call
+		//n is THE INPUT VALUE
+		int result = perrin(n-2)+perrin(n-3);
+		cout << "returning " << result << " with n = " << n << endl;
+		return result;
+	}
+}
+
+

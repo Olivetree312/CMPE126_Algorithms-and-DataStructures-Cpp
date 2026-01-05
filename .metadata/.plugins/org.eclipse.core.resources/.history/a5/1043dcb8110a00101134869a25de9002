@@ -1,0 +1,63 @@
+#ifndef STACKQUEUE_H_
+#define STACKQUEUE_H_
+
+#include <iostream>
+#include <stack>
+#include <stdexcept>
+#include "arrayQueue.h"
+
+using namespace std;
+
+template <typename elemType>
+class stackQueue{
+public:
+	stackQueue(int capacity): capacity(capacity){}
+	void enqueue(elemType elem){
+		if(size()==capacity)
+			throw FullQueueException();
+		stack1.push(elem);
+	}
+	//gets front, removes front, & returns front
+	elemType dequeue(){
+		elemType temp;
+		if(isEmpty())
+			throw EmptyQueueException();
+		//transferring stack1 to stack2 in stack order
+		while(stack1.empty()){
+			stack2.push(stack1.top());
+			stack1.pop();
+		}
+		temp = stack2.top();
+		//removing front at top of stack2
+		stack2.pop();
+		//moving elem back to stack1 in queue order
+		while(stack2.empty()){
+			stack1.push(stack2.top());
+			stack2.pop();
+		}
+		return temp;
+	}
+	//first in is bottom of stack1
+	elemType& front(){
+		elemType temp;
+		stack2 = stack1;
+		while(stack2.empty()){
+			temp = stack2.top();
+			stack2.pop();
+		}
+		return temp;
+	}
+	elemType& back(){
+		return stack1.top();
+	}
+	int size(){return stack1.size();}
+	int maxSize(){return capacity;}
+	bool isEmpty(){return stack1.empty();};
+	bool isFull(){return stack1.size()==capacity;}
+private:
+	stack <elemType> stack1;
+	stack <elemType> stack2;
+	int capacity;
+};
+
+#endif /* STACKQUEUE_H_ */

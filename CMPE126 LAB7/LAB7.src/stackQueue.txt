@@ -1,0 +1,40 @@
+Goal: impliment queue using stack objects
+- stack --> FILO & LIFO
+- queue --> FIFO & LILO
+- ONLY stacks may store queue elements
+- stack functions: push, pop, top, empty, size
+
+stackQueue object has:
+public: enqueue, dequeue, front, size, maxSize, isEmpty, isFull
+private: 2 stacks
+
+method:
+- use stack1 for enqueue operations
+- use stack2 to hold elements when dequeueing
+
+functions:
+- enqueue (adds elem to back of queue)
+	~ back of queue = top of stack
+	~ push elem onto stack1
+	*O(1) because push() onto stack uses constant time
+- dequeue (removes elem from front of queue, returns ref to front elem)
+	~ front of queue = bottom of stack --> how to access?
+	~ "pour" stack1 into stack2 so that front = stack2.top()
+	~ pop stack2.top() to remove front
+	~ "pour" stack2 back into stack1 so that stack1 front is at bottom
+	*O(n) because need to traverse all elem of stack to reach bottom
+- front (returns ref to front elem)
+	~ copy assign stack1 to stack2
+	~ while stack2 is not empty, get top, then pop
+	~ return most recent top elem
+	*O(n) because need to traverse all elem of stack to reach bottom
+- size (returns num elem in queue)
+	~ use stack function size()
+	*O(1) because stack has function to return size
+- maxSize (returns capacity)
+	*O(1) because capacity is attribute of stackQueue
+- isEmpty (returns T if size is 0)
+	*O(1) because stack has function to check if empty
+- isFull (returns T if at capacity)
+	*O(1) because stack has function to check size, which
+		we compare to the capacity of the queue

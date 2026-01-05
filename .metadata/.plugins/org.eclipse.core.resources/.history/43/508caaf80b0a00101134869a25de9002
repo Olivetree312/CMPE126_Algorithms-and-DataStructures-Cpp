@@ -1,0 +1,16 @@
+#ifndef STACKQUEUE_H_
+#define STACKQUEUE_H_
+
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+template <typename elemType>
+class stackQueue{
+public:
+private:
+	stack <elemType> stack1;
+};
+
+#endif /* STACKQUEUE_H_ */

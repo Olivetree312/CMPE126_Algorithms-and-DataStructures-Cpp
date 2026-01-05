@@ -1,0 +1,34 @@
+SETTINGS:
+- 4 quadrant coordinate system NOT the same as 2D array
+	-> assume we are only using Q1 (+x,+y)
+	-> print 2D array with R1 at bottom
+	-> assume bottom left corner (0,0) 
+	-> need function to check when out of bounds (x or y <0)
+
+REQUIREMENTS:
+- move
+- undo (stack)
+- redo (stack)
+- print history of ops
+	-> need vector to track ops
+
+UNDO & REDO:
+- DON'T call move because it pushes ops back onto undoStack
+	-> perform moves manually within each function
+- using stacks
+	-> push all ops onto undo stack
+	-> when undo() -> pop from undo(0), push onto redo()
+	-> when new op performed -> clear redo()
+- pop undo -> push redo:
+	-> pop() -> perform inverse of op (l <-> r) (u <-> d)
+	-> push() ONTO redo (so what was undone can be redone)
+
+MAZE SOLVER:
+- assume 1 = wall to right -> cannot move r
+- assume 0 = no floor below -> cannot move to square
+- can move left as long as in bounds (0<x-1 && x-1<cols)
+- can move right if in bounds & no wall (x+1<cols && no wall)
+- can move down if in bounds
+- can move up if in bounds
+
+- need some sort of maze solver recursive algorithm

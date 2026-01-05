@@ -1,0 +1,6 @@
+12:48:13 **** Incremental Build of configuration Debug for project CMPE126_LAB5 ****
+make all 
+make: Nothing to be done for `all'.
+
+12:48:14 Build Finished. 0 errors, 0 warnings. (took 141ms)
+

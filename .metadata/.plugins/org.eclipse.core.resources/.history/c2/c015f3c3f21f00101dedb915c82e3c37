@@ -1,0 +1,28 @@
+#include "HashTable.h"
+#include <iomanip>
+
+HashTable::HashTable(): HTSize(10), arr(new int[10]){}
+HashTable::HashTable(int size): HTSize(size), arr(new int[10]){}
+
+void HashTable::print(){
+	int count = 0;
+	for(int num : arr){
+		cout << setw(10) << "INDEX" << setw(10) << "KEY/ VALUE" << endl;
+	}
+}
+//uses linear probing
+//key is hashed --> hash value --> determines index --> stores value
+//BUT IN THIS ASSIGNMENT...key = value
+//key is hashed --> determiines index --> key is stored
+bool HashTable::insert(int num){
+
+}
+int HashTable::search(int key){
+
+}
+
+HashTable::~HashTable(){
+	delete[] arr;
+}
+
+

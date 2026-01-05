@@ -1,0 +1,12 @@
+#include <iostream>
+#include "arrayQueue.h"
+#include "stackQueue.h"
+
+using namespace std;
+
+int main(){
+
+}
+
+
+

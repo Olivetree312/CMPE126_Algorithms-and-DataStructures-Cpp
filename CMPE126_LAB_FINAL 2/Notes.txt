@@ -1,0 +1,23 @@
+TASK 1:
+- used cout to debug
+- error: was comparing the whole Student object to string
+- fix: get member of Student to compare to string
+- printed list to display zero-based indices
+- ALSO: check for file existence
+	- PROBLEM: students.txt needs to be under project folder, NOT src folder
+
+TASK 2:
+- method: use basicSearch as helper function for searchAll
+	- using basicSearch to find first occurance of last name
+		->then incrementing index until different last name
+	- continuing to use helper functions for other search algorithms
+		in order to print all duplicate last names
+
+TASK 3:
+- in order to determine if name at index is less than or equal to target:
+	-> get index value of first letter of last names and compare
+	-> have separate variables for indices and value of first letter at index
+- ternary search is similar to binary search but keeping track of 2 mids
+	-> recursive function with base case low > high
+	- (binary function uses while loop)
+	***MUST SEARCH BOTH FORWARD AND BACKWARD to print duplicate names

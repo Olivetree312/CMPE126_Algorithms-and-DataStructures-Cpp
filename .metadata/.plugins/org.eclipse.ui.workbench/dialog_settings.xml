@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.cdt.ui.exportWizardCategory"/>
+		</list>
+		<section name="ImportExportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="71"/>
+			<item key="DIALOG_Y_ORIGIN" value="137"/>
+			<item key="DIALOG_WIDTH" value="586"/>
+			<item key="DIALOG_HEIGHT" value="550"/>
+			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+		</section>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="/Users/oliviachen/eclipse-CMPE126/ProgrammingExam2_017098263.zip"/>
+			<item value="/Users/oliviachen/eclipse-CMPE126/CMPE126_RPG.zip"/>
+			<item value="/Users/oliviachen/eclipse-CMPE126/CMPE126_LAB 2.zip"/>
+			<item value="/Users/oliviachen/eclipse-CMPE126/CMPE126_LAB2.zip"/>
+			<item value="/Users/oliviachen/eclipse-CMPE126/CMPE126_LAB1-CLASSES.zip"/>
+			<item value="/Users/oliviachen/eclipse-CMPE126/CMPE126_CA1.zip"/>
+			<item value="/Users/oliviachen/eclipse-CMPE126/CMPE126_LAB1.zip"/>
+			<item value="CMPE126_LAB1.zip"/>
+		</list>
+		<section name="ZipFileExportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="34"/>
+			<item key="DIALOG_Y_ORIGIN" value="137"/>
+			<item key="DIALOG_WIDTH" value="691"/>
+			<item key="DIALOG_HEIGHT" value="617"/>
+			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+		</section>
+	</section>
+	<section name="WorkbenchPreferenceDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="-221"/>
+		<item key="DIALOG_Y_ORIGIN" value="100"/>
+		<item key="DIALOG_WIDTH" value="950"/>
+		<item key="DIALOG_HEIGHT" value="540"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+</section>

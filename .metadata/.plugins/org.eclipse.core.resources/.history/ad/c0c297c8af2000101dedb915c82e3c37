@@ -1,0 +1,11 @@
+#ifndef HASHTABLECHAINING_H_
+#define HASHTABLECHAINING_H_
+
+#include "HashTable.h"
+
+class HashTableChaining : public HashTable{
+
+
+};
+
+#endif /* HASHTABLECHAINING_H_ */

@@ -1,0 +1,191 @@
+/*ALSO INCLUDES sortedLinkedList functions*/
+
+#include "linkedList.h"
+#include "sortedLinkedList.h"
+#include <iostream>
+
+using namespace std;
+
+//Node constructor w curr val, null nextVal
+template <class T> Node<T>::Node(T data): data(data), next(nullptr){}
+
+template <class T> linkedList<T>::linkedList(Node<T>* head, int maxSize): head(head), maxSize(maxSize){
+	size = listSize();
+}
+
+//default maxSize of 10
+template <class T> linkedList<T>::linkedList(): head(nullptr), maxSize(10), size(0){}
+
+template <class T> void linkedList<T>::insertEnd(T elemType){
+	insertAt(size, elemType);
+}
+//getters
+template <class T> Node<T>* linkedList<T>::getHead() const{return head;}
+//setters
+template <class T> void linkedList<T>::setHead(Node<T>* head){
+	delete this->head;
+	this->head = head;
+}
+
+template <class T> bool linkedList<T>::isEmpty() const{
+	return(head==nullptr);
+}
+template <class T> bool linkedList<T>::isFull() const{
+	return (size==maxSize);
+}
+//traverses linkedList to find current size
+template <class T> int linkedList<T>::listSize() const{
+	Node<T>* curr = head;
+	int count = 0;
+	while(curr!=nullptr){
+		curr = curr->next; //moves to Node's ptr to next Node
+		count++;
+	}
+	return count;
+}
+template <class T> int linkedList<T>::maxListSize() const{return maxSize;}
+
+template <class T> void linkedList<T>::print(){
+	Node<T>* curr = head;
+	while(curr!=nullptr){
+		cout << curr->data << endl;
+		curr = curr->next;
+	}
+}
+template <class T> bool linkedList<T>::isItemAtEqual(int index, T elemType){
+	if(index>size||index<0){
+		cerr << "Index out of bounds" << endl;
+		return false;
+	}
+	T itemAt = retrieveAt(index);
+	if(elemType==itemAt)
+		return true;
+	else
+		return false;
+}
+//obj at index will be moved after
+//inserting at end allowed
+template <class T> void linkedList<T>::insertAt(int index, T elemType){
+	if(index>size||index<0){
+		cerr << "Index out of bounds" << endl;
+		return;
+	}
+	if(size+1>maxSize){
+		cerr << "Max size reached" << endl;
+		return;
+	}
+	//make new Node ptr containing curr elemType
+	Node<T>* newNode= new Node<T>(elemType);
+	//save ptr to Node at index, to be moved after insertion
+	Node<T>* afterNode, * beforeNode;
+
+	//if inserting at end
+	if(index==size){
+		beforeNode = retrieveNodePtrAt(index-1);
+		beforeNode->next = newNode;
+	}
+	//if inserting at beg
+	else if(index==0){
+		head = newNode;
+		afterNode = retrieveNodePtrAt(index);
+		newNode->next = afterNode;
+	}
+	else{
+		beforeNode = retrieveNodePtrAt(index-1);
+		afterNode = retrieveNodePtrAt(index);
+		beforeNode->next = newNode;
+		newNode->next = afterNode;
+	}
+	//newNode memory being used, no need for delete
+	size++;
+
+}
+template <class T> void linkedList<T>::removeAt(int index){
+	if(index>=size||index<0){
+		cerr << "Index out of bounds" << endl;
+		return;
+	}
+	Node<T>* currNode = retrieveNodePtrAt(index);
+	delete currNode;
+	Node<T>* afterNode, * beforeNode;
+	//if removing from end
+	if(index==size-1){
+		beforeNode = retrieveNodePtrAt(index-1);
+		beforeNode->next = nullptr;
+	}
+	//if removing from beg
+	else if(index==0){
+		afterNode = retrieveNodePtrAt(index+1);
+		head = afterNode;
+	}
+	else{
+		beforeNode = retrieveNodePtrAt(index-1);
+		afterNode = retrieveNodePtrAt(index+1);
+		beforeNode->next = afterNode;
+	}
+	//newNode memory being used, no need for delete
+	size--;
+}
+//returns head Node's T if index OOB
+template <class T> Node<T>* linkedList<T>::retrieveNodePtrAt(int index) const{
+	if(index>=size-1){ //size-1=maxIndex
+		cerr << "Index out of bounds" << endl;
+		return head;
+	}
+	Node<T>* curr = head;
+	int count=0;
+	while(count<index){
+		curr = curr->next;
+		count++;
+	}
+	return curr;
+}
+template <class T> T linkedList<T>::retrieveAt(int index){
+	Node<T>* obj= retrieveNodePtrAt(index);
+	return obj->data;
+}
+template <class T> void linkedList<T>::replaceAt(int index, T elemType){
+	Node<T>* curr = retrieveNodePtrAt(index);
+	curr->data = elemType;
+}
+template <class T> void linkedList<T>::clearList(){
+	Node<T>* curr = head;
+	Node<T>* temp;
+	while(curr!=nullptr){
+		temp = curr;
+		curr = curr->next;
+		delete temp;
+	}
+}
+
+template <class T> linkedList<T>& linkedList<T>:: operator=(const linkedList<T>& other){
+	if(this!=&other){
+		clearList();
+	}
+	this->maxSize = other.maxSize;
+	this->size = other.size;
+
+	Node<T>* temp, *curr;
+
+	curr = other.retrieveNodePtrAt(0);
+	head = new Node<T>(curr->data);
+	curr = head;
+
+	for(int i=1; i<size; i++){
+		temp = other.retrieveNodePtrAt(i);
+		curr->next = temp;
+		curr = curr->next;
+	}
+	return *this;
+}
+
+template <class T> linkedList<T>::~linkedList(){
+	clearList();
+}
+
+//for template function declaration to be written outside header -> explicit template instantiation
+template class linkedList<int>;
+
+
+
+

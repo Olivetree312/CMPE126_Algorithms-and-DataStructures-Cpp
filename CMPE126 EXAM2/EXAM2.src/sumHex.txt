@@ -1,0 +1,17 @@
+PSEUDOCODE:
+int sumHex(string s){
+- base condition s.empty() = TRUE -> return 0
+	else -> get decimal value of char
+- add to recursive return, with s.substr(1) //substring starting from index 1
+}
+
+//HELPER FUNCTION TO CONVERT HEX CHAR TO INT
+//works because char types stored as ASCII values -> direct conversion
+int hexCharToInt(char c){
+- if c from 0-9 -> return int(c) - int('0')
+- if c from 'A' - 'F' -> return int(c) - int('A') + 10
+	- ex: int('A') = 10 because 65 - 65 +10 = 10
+}
+
+REFERENCES:
+- ASCII Table for char & int conversion: https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html

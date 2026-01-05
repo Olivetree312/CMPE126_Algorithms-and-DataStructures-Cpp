@@ -1,0 +1,56 @@
+#include "HashTable.h"
+#include <iomanip>
+
+HashTable::HashTable(): HTSize(10), arr(new int[10]){}
+HashTable::HashTable(int size): HTSize(size), arr(new int[10]){}
+
+void HashTable::print(){
+	cout << setw(10) << "INDEX" << setw(10) << "KEY/ VALUE" << endl;
+	for(int i=0; i<HTSize; i++){
+		cout <<setw(10) << i << setw(10) << arr[i] << endl;
+	}
+}
+//uses linear probing
+//HASH VALUE != VALUE
+//key is hashed --> hash value + probing -->
+//--->				determines index --> stores value
+//BUT IN THIS ASSIGNMENT...key = value
+//key is hashed --> determines index --> key is stored
+bool HashTable::insert(int num){
+	int probe = 1;
+	int index = linProbe(num, probe);
+	//key or inserted element CANNOT be duplicate
+	//linearly probe through arr to find empty spot
+	//return false if found or if iterated through whole array
+	while(arr[index]!=nullptr){
+		if(arr[index]==num || (probe==HTSize)){
+			cout << "Duplicate keys not allowed!" << endl;
+			return false;
+		}
+		else{
+			index = linProbe(num, ++probe);
+		}
+	}
+	arr[index] = num;
+	return true;
+}
+//modulo table size is technically the hash function
+//simplified: (val+probe)%HTSize = ((val%HTSize)+probe)%HTSize
+int HashTable::linProbe(int val, int probe){
+	return (val+probe)%HTSize;
+}
+int HashTable::search(int key){
+	int probe = 1;
+	int index = linProbe(key, probe);
+	while(probe<=HTSize){
+		if(arr[index]==key) return index;
+	}
+	//returns -1 if not found
+	return -1;
+}
+
+HashTable::~HashTable(){
+	delete[] arr;
+}
+
+

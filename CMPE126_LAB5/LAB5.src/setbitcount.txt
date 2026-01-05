@@ -1,0 +1,27 @@
+set bits~ 1's in binary numbers
+
+//decimal --> binary conversion:
+//	divide by 2, leaving remainder
+//	stop when quotient=0
+//	store remainders in reverse order
+
+
+PSUEDOCODE FOR SETBITCOUNT:
+- parameter (n, &bits) (bits count # of bits)
+- base condition: n==0 (cannot be divided by 2 anymore--> last digit)
+- if(n>0) --> divide n by 2
+- 	if n/2 has remainder --> increment bits
+- 	recurse: return setbitcount(n/2, bits);
+
+ORRRR TO DO IT WITH ONLY ONE PARAMETER:
+- parameter (unsigned int n)
+- base condition n==0
+- if n/2 has remainder --> return 1+set_bit_count(n/2)
+- else return setbitcount(n/2)
+
+COMPUTATIONAL COMPLEXITY~ depends on number of times recursion implemented
+
+Since each call reduces n by a factor of 2, the number of recursive
+calls follows a divide-by-2 pattern. Since the numbr of times we can divide
+n by 2 before reaching 0 is log2(n), the time complexity is
+O(log n), assuming each call takes O(1) time.

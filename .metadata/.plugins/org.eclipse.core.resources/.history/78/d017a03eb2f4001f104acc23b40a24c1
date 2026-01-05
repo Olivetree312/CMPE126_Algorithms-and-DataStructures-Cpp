@@ -1,0 +1,11 @@
+Detail the operators that should be overloaded in the class that is passed as
+elemType, the template parameter.
+
+For the linkedList class, most of the default operators besides
+the assignment operator are fine, and we already explicitly defined an
+overloaded operator= function. For the sortedLinkedList class, however,
+need to sort the elements, so we must overload all the comparison
+operators such as (==, < , >, <=, >=, !=), in the case of when
+elemType is a custom class. Also, we have to overload the copy
+constructor in case the elemType is a custom class with dynamically
+allocated members.

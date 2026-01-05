@@ -1,0 +1,32 @@
+/*
+ * arrayQueue.h
+ *
+ *  Created on: Mar 25, 2025
+ *      Author: oliviachen
+ */
+
+#ifndef ARRAYQUEUE_H_
+#define ARRAYQUEUE_H_
+
+using namespace std;
+
+template <class T>
+class arrayQueue{
+public:
+	arrayQueue(int size);
+	void enqueue(T elem);
+	void dequeue(T elem);
+	T& front();
+	T& back();
+	int size();
+	int maxSize();
+	bool isEmpty();
+	bool isFull();
+
+private:
+	int f;
+	int r;
+	T* arr;
+};
+
+#endif /* ARRAYQUEUE_H_ */
